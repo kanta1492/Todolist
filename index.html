@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO - Life Organizer</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <header class="main-header">
+            <div class="logo"><strong>庄司家</strong></div>
+            <nav class="nav-links">
+                <span id="display-user" class="user-badge"></span>
+                <a href="index.html" class="active">TODO</a>
+                <a href="calendar.html">カレンダー</a>
+                <button class="logout-btn" onclick="handleLogout()">ログアウト</button>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="input-header">
+                <input type="text" id="task-name" placeholder="自分の新しいタスク...">
+                <select id="task-priority">
+                    <option value="high">優先：高</option>
+                    <option value="mid" selected>優先：中</option>
+                    <option value="low">優先：低</option>
+                </select>
+                <input type="datetime-local" id="task-deadline">
+                <button onclick="addTask()">追加</button>
+            </div>
+            
+            <h3 style="margin-bottom:15px; color:#4a5568;"><i class="fas fa-users"></i> みんなの状況</h3>
+            
+            <div id="todo-list-container"></div>
+
+            <div id="pagination-controls" class="pagination-area"></div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        checkAuth(); 
+        document.addEventListener('DOMContentLoaded', () => {
+            showCurrentUser();
+            renderTasks(); // ページ読み込み時に描画
+        });
+    </script>
+</body>
+</html>

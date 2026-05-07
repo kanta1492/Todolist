@@ -5,31 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>TODO</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-wrapper">
         <header class="main-header">
-            <div class="logo">庄司家</div>
+            <div class="logo">LIFE</div>
             <nav class="nav-links">
-                <span class="user-badge"><i class="fas fa-user"></i> <span id="display-user"></span> さん</span>
+                <span id="display-user" class="user-badge"></span>
                 <a href="todo.html" class="active">TODO</a>
-                <a href="calendar.html">カレンダー</a>
-                <button class="logout-btn" onclick="handleLogout()">ログアウト</button>
+                <a href="calendar.html">CAL</a>
+                <button class="logout-btn" onclick="handleLogout()">OUT</button>
             </nav>
         </header>
 
         <main class="main-content">
             <div class="input-header">
-                <input type="text" id="task-name" placeholder="自分の新しいタスク...">
+                <input type="text" id="task-name" placeholder="何をする？">
                 <input type="datetime-local" id="task-deadline">
                 <select id="task-priority">
                     <option value="low">低</option>
                     <option value="mid" selected>中</option>
                     <option value="high">高</option>
                 </select>
-                <button onclick="addTask()">追加</button>
+                <button onclick="addTask()">ADD</button>
             </div>
             <div id="task-list"></div>
             <div class="pagination-area">

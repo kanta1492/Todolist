@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Login - Life Organizer</title>
+    <title>Login</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div class="app-wrapper">
         <header class="main-header" style="justify-content: center;">
-            <div class="logo"><strong>Life</strong></div>
+            <div class="logo">LIFE ORGANIZER</div>
         </header>
-
         <main style="flex:1; display:flex; align-items:center; justify-content:center; width:100%;">
-            <div style="background:var(--white); padding:25px; border-radius:15px; box-shadow:var(--card-shadow); width:90%; max-width:320px; text-align:center;">
-                <h2 style="margin-bottom:15px; color:var(--accent); font-size:1.1rem;">家族ログイン</h2>
-                <select id="username" style="width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #edf2f7; background:#f8fafc;">
+            <div style="background:var(--white); padding:20px; border-radius:12px; box-shadow:var(--card-shadow); width:90%; max-width:300px; text-align:center;">
+                <h2 style="margin-bottom:15px; font-size:1rem; color:var(--accent);">LOGIN</h2>
+                <select id="username" style="width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #edf2f7; font-size:14px;">
                     <option value="" disabled selected>名前を選択</option>
                     <option value="かんた">かんた</option>
                     <option value="なお">なお</option>
                     <option value="きょうこ">きょうこ</option>
                     <option value="としひこ">としひこ</option>
                 </select>
-                <input type="password" id="password" placeholder="パスワード" style="width:100%; padding:10px; margin-bottom:15px; border-radius:8px; border:1px solid #edf2f7; background:#f8fafc;">
-                <button onclick="handleLogin()" style="width:100%; padding:10px; background:var(--accent); color:white; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">ログイン</button>
+                <input type="password" id="password" placeholder="パスワード" style="width:100%; padding:10px; margin-bottom:15px; border-radius:8px; border:1px solid #edf2f7; font-size:14px;">
+                <button onclick="handleLogin()" style="width:100%; padding:10px; background:var(--accent); color:white; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">ENTER</button>
             </div>
         </main>
     </div>

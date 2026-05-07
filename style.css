@@ -26,11 +26,11 @@ body, html {
     align-items: center;
 }
 
-/* --- ヘッダー：庄司家ロゴ＋横文字一行 --- */
+/* --- ヘッダー：極小・横文字・一行固定 --- */
 .main-header {
     width: 95%;
     max-width: 600px;
-    flex: 0 0 38px;          /* 少しだけ高さを確保 */
+    flex: 0 0 35px;          /* 高さを35pxに圧縮 */
     margin: 8px auto 0;
     background: var(--white);
     padding: 0 10px;
@@ -38,54 +38,52 @@ body, html {
     justify-content: space-between;
     align-items: center;
     box-shadow: var(--card-shadow);
-    border-radius: 8px;
+    border-radius: 6px;
     z-index: 1000;
     white-space: nowrap;     /* 絶対に改行させない */
 }
 
 .logo { 
-    font-size: 0.75rem;      /* 庄司家の文字サイズ */
-    color: var(--text-main); 
+    font-size: 0.7rem; 
+    color: var(--accent); 
     font-weight: bold;
     flex-shrink: 0;
-    margin-right: 5px;
 }
 
 .nav-links { 
     display: flex; 
-    gap: 8px;                /* 要素の間隔を少し詰める */
+    gap: 12px;               /* リンク間の余白 */
     align-items: center; 
     flex-shrink: 1;
     min-width: 0;
 }
 
-/* リンクとアイコンのテキスト */
-.nav-links a, .user-badge, .logout-btn { 
+.nav-links a { 
     text-decoration: none; 
     color: var(--text-sub); 
     font-weight: bold; 
-    font-size: 0.65rem;      /* 全体の文字サイズを小さく */
-    display: flex;
-    align-items: center;
-    gap: 3px;
+    font-size: 0.65rem;      /* 文字をかなり小さく */
 }
-
 .nav-links a.active { color: var(--accent); }
+
+.user-badge { 
+    font-size: 0.6rem; 
+    color: var(--text-sub);
+    flex-shrink: 0;
+}
 
 .logout-btn {
     background: none;
     border: none;
-    color: var(--text-sub); 
+    color: var(--danger); 
+    font-size: 0.65rem;
+    font-weight: bold;
     cursor: pointer; 
+    flex-shrink: 0;
     padding: 0;
 }
 
-/* アイコン自体のサイズ調整 */
-.nav-links i {
-    font-size: 0.7rem;
-}
-
-/* --- コンテンツエリア以降 --- */
+/* --- メインコンテンツ --- */
 .main-content {
     flex: 1;
     display: flex;
@@ -97,10 +95,11 @@ body, html {
     overflow: hidden;
 }
 
+/* --- TODO入力欄 --- */
 .input-header {
     background: var(--white);
     padding: 10px;
-    border-radius: 12px;
+    border-radius: 10px;
     margin-bottom: 8px;
     display: flex;
     flex-wrap: wrap;
@@ -108,16 +107,17 @@ body, html {
     box-shadow: var(--card-shadow);
 }
 .input-header input, .input-header select {
-    padding: 6px; border: 1px solid #edf2f7; border-radius: 6px; font-size: 12px;
+    padding: 6px; border: 1px solid #edf2f7; border-radius: 5px; font-size: 12px;
 }
 #task-name { flex: 1 1 100%; }
 #task-deadline { flex: 1; }
 #task-priority { flex: 0 0 55px; }
 .input-header button {
     width: 100%; background: var(--accent); color: white; border: none;
-    padding: 8px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 13px;
+    padding: 8px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 13px;
 }
 
+/* --- リスト --- */
 #task-list { flex: 1; overflow-y: auto; padding-right: 2px; }
 .task-card {
     background: var(--white); margin-bottom: 6px; padding: 8px 10px;
@@ -126,6 +126,7 @@ body, html {
     font-size: 0.8rem;
 }
 
+/* --- カレンダー --- */
 #calendar-full {
     flex: 1; background: var(--white); padding: 5px;
     border-radius: 10px; box-shadow: var(--card-shadow);
@@ -134,5 +135,6 @@ body, html {
 .fc { font-size: 0.65rem !important; }
 .fc .fc-toolbar-title { font-size: 0.8rem !important; }
 
+/* --- ページネーション --- */
 .pagination-area { padding: 5px 0; display: flex; justify-content: center; gap: 8px; font-size: 0.7rem; }
 .page-btn { background: white; border: 1px solid #cbd5e0; padding: 2px 8px; border-radius: 4px; }

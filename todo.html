@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TODO - Life Organizer</title>
+    <title>TODO</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-wrapper">
         <header class="main-header">
-            <div class="logo"><strong>Life</strong></div>
+            <div class="logo">LIFE</div>
             <nav class="nav-links">
                 <span id="display-user" class="user-badge"></span>
                 <a href="todo.html" class="active">TODO</a>
                 <a href="calendar.html">CAL</a>
-                <button class="logout-btn" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i></button>
+                <button class="logout-btn" onclick="handleLogout()">OUT</button>
             </nav>
         </header>
 
@@ -29,11 +28,9 @@
                     <option value="mid" selected>中</option>
                     <option value="high">高</option>
                 </select>
-                <button onclick="addTask()">追加</button>
+                <button onclick="addTask()">ADD</button>
             </div>
-
             <div id="task-list"></div>
-
             <div class="pagination-area">
                 <button id="prev-page" class="page-btn" onclick="changePage(-1)">前</button>
                 <span id="page-info">1 / 1</span>

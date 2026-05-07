@@ -4,79 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Login - Life Organizer</title>
-    <!-- 共通のスタイルシートを読み込み -->
     <link rel="stylesheet" href="style.css">
-    <!-- アラート用ライブラリ -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-        /* ログイン画面固有のレイアウト調整 */
-        .login-container {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        .login-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: var(--card-shadow);
-            width: 95%;
-            max-width: 400px; /* ログインカードは少し細身に */
-            text-align: center;
-        }
-        .login-card h2 {
-            margin-bottom: 20px;
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-        .login-card select, .login-card input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #edf2f7;
-            border-radius: 10px;
-            font-size: 14px;
-            background: #f8fafc;
-            outline: none;
-        }
-        .login-card button {
-            width: 100%;
-            padding: 12px;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
     <div class="app-wrapper">
-        <!-- 中央に寄せるためのヘッダー（TODO画面と共通のクラスを使用） -->
         <header class="main-header" style="justify-content: center;">
-            <div class="logo"><strong>LifeOrganizer</strong></div>
+            <div class="logo"><strong>Life</strong></div>
         </header>
 
-        <main class="login-container">
-            <div class="login-card">
-                <h2>家族ログイン</h2>
-                <select id="username">
-                    <option value="" disabled selected>名前を選択してください</option>
+        <main style="flex:1; display:flex; align-items:center; justify-content:center; width:100%;">
+            <div style="background:var(--white); padding:25px; border-radius:15px; box-shadow:var(--card-shadow); width:90%; max-width:320px; text-align:center;">
+                <h2 style="margin-bottom:15px; color:var(--accent); font-size:1.1rem;">家族ログイン</h2>
+                <select id="username" style="width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #edf2f7; background:#f8fafc;">
+                    <option value="" disabled selected>名前を選択</option>
                     <option value="かんた">かんた</option>
                     <option value="なお">なお</option>
                     <option value="きょうこ">きょうこ</option>
                     <option value="としひこ">としひこ</option>
                 </select>
-                <input type="password" id="password" placeholder="パスワード">
-                <button onclick="handleLogin()">ログイン</button>
+                <input type="password" id="password" placeholder="パスワード" style="width:100%; padding:10px; margin-bottom:15px; border-radius:8px; border:1px solid #edf2f7; background:#f8fafc;">
+                <button onclick="handleLogin()" style="width:100%; padding:10px; background:var(--accent); color:white; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">ログイン</button>
             </div>
         </main>
     </div>
-
-    <!-- 共通のロジックを読み込み -->
     <script src="script.js"></script>
 </body>
 </html>

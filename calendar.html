@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Calendar - Life Organizer</title>
+    <title>CAL</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-wrapper">
         <header class="main-header">
-            <div class="logo"><strong>Life</strong></div>
+            <div class="logo">LIFE</div>
             <nav class="nav-links">
                 <span id="display-user" class="user-badge"></span>
                 <a href="todo.html">TODO</a>
                 <a href="calendar.html" class="active">CAL</a>
-                <button class="logout-btn" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i></button>
+                <button class="logout-btn" onclick="handleLogout()">OUT</button>
             </nav>
         </header>
 
@@ -31,58 +30,26 @@
         checkAuth();
         document.addEventListener('DOMContentLoaded', function() {
             showCurrentUser();
-            const currentUser = localStorage.getItem('currentUser');
             const calendarEl = document.getElementById('calendar-full');
-            
             const calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
                 locale: 'ja',
                 height: '100%',
-                headerToolbar: {
-                    left: 'prev,next',
-                    center: 'title',
-                    right: 'today'
-                },
-                dayMaxEvents: 2,
+                headerToolbar: { left: 'prev,next', center: 'title', right: 'today' },
                 events: JSON.parse(localStorage.getItem('calEvents')) || [],
                 selectable: true,
                 select: async function(info) {
-                    const { value: fV } = await Swal.fire({
-                        title: '予定追加',
-                        input: 'text',
-                        inputPlaceholder: '内容を入力',
-                        showCancelButton: true
-                    });
+                    const { value: fV } = await Swal.fire({ title: '予定追加', input: 'text' });
                     if (fV) {
                         const newEv = { 
                             id: Date.now().toString(),
-                            userId: currentUser,
                             title: fV,
                             start: info.startStr,
-                            backgroundColor: '#5a67d8',
-                            extendedProps: { userId: currentUser }
+                            backgroundColor: '#5a67d8'
                         };
                         calendar.addEvent(newEv);
                         saveEvent(newEv);
                     }
-                    calendar.unselect();
-                },
-                eventClick: function(info) {
-                    const owner = info.event.extendedProps.userId;
-                    Swal.fire({
-                        title: info.event.title,
-                        text: `担当: ${owner || '不明'}`,
-                        showDenyButton: (owner === currentUser),
-                        denyButtonText: '削除',
-                        showConfirmButton: false,
-                        showCancelButton: true,
-                        cancelButtonText: '閉じる'
-                    }).then((result) => {
-                        if (result.isDenied) {
-                            info.event.remove();
-                            deleteEvent(info.event.id);
-                        }
-                    });
                 }
             });
             calendar.render();

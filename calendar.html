@@ -6,18 +6,17 @@
     <title>CAL</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-wrapper">
         <header class="main-header">
-            <div class="logo">庄司家</div>
+            <div class="logo">LIFE</div>
             <nav class="nav-links">
-                <span class="user-badge"><i class="fas fa-user"></i> <span id="display-user"></span> さん</span>
+                <span id="display-user" class="user-badge"></span>
                 <a href="todo.html">TODO</a>
-                <a href="calendar.html" class="active">カレンダー</a>
-                <button class="logout-btn" onclick="handleLogout()">ログアウト</button>
+                <a href="calendar.html" class="active">CAL</a>
+                <button class="logout-btn" onclick="handleLogout()">OUT</button>
             </nav>
         </header>
 
@@ -42,7 +41,12 @@
                 select: async function(info) {
                     const { value: fV } = await Swal.fire({ title: '予定追加', input: 'text' });
                     if (fV) {
-                        const newEv = { id: Date.now().toString(), title: fV, start: info.startStr, backgroundColor: '#5a67d8' };
+                        const newEv = { 
+                            id: Date.now().toString(),
+                            title: fV,
+                            start: info.startStr,
+                            backgroundColor: '#5a67d8'
+                        };
                         calendar.addEvent(newEv);
                         saveEvent(newEv);
                     }

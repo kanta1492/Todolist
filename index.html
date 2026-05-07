@@ -4,44 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Life Organizer</title>
+    <!-- SweetAlert2 (アラート用) -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ログイン画面専用の追加調整 */
+        .login-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .login-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            width: 100%;
+            max-width: 400px; /* ログインカードはさらに少し小さめに */
+            text-align: center;
+        }
+        .login-card h2 {
+            margin-bottom: 25px;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+        .login-card select, .login-card input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #edf2f7;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: #f8fafc;
+        }
+        .login-card button {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .login-card button:hover {
+            background: var(--accent-hover);
+        }
+    </style>
 </head>
-<body class="login-body">
-    <div class="login-container">
-        <div class="login-card">
-            <div class="login-header">
-                <div class="brand-logo">
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <h1>庄司家</h1>
-            </div>
+<body>
+    <div class="app-wrapper">
+        <!-- ヘッダー（ロゴのみのシンプル版） -->
+        <header class="main-header" style="justify-content: center;">
+            <div class="logo"><strong>LifeOrganizer</strong></div>
+        </header>
 
-            <div class="login-form">
-                <div class="input-group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" id="username" placeholder="ユーザー名" onkeypress="if(event.key === 'Enter') handleLogin()">
-                </div>
-                <div class="input-group">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" id="password" placeholder="パスワード" onkeypress="if(event.key === 'Enter') handleLogin()">
-                </div>
-                <button class="login-submit-btn" onclick="handleLogin()">
-                    ログイン <i class="fas fa-arrow-right"></i>
-                </button>
+        <main class="login-container">
+            <div class="login-card">
+                <h2>おかえりなさい</h2>
+                <select id="username">
+                    <option value="" disabled selected>名前を選択してください</option>
+                    <option value="かんた">かんた</option>
+                    <option value="なお">なお</option>
+                    <option value="きょうこ">きょうこ</option>
+                    <option value="としひこ">としひこ</option>
+                </select>
+                <input type="password" id="password" placeholder="パスワード">
+                <button onclick="handleLogin()">ログイン</button>
             </div>
-
-            <div class="login-footer">
-                <p class="footer-title">Registered Members</p>
-                <div class="user-chips">
-                    <span>かんた</span>
-                    <span>なお</span>
-                    <span>きょうこ</span>
-                    <span>としひこ</span>
-                </div>
-            </div>
-        </div>
+        </main>
     </div>
 
     <script src="script.js"></script>
